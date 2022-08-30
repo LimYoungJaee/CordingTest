@@ -1,0 +1,31 @@
+/*	
+프로그래머스 level1 완주하지 못한 선수	
+마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 
+2022 - 08 - 29
+*/
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Arrays;
+class Solution{
+    public String solution(String[] participant, String[] completion){
+        String answer = "";
+        Map<String, Integer> map = new HashMap();
+        
+        for(String parti: participant){
+            map.put(parti, map.getOrDefault(parti, 0) + 1);
+        }
+        
+        for(String comp: completion){
+            map.put(comp, map.get(comp) - 1);
+        }
+        
+        for(Map.Entry<String, Integer> maps: map.entrySet()){
+            if(maps.getValue()>0){
+                answer = maps.getKey();
+                break;
+            }
+        }
+        return answer;
+    }
+}

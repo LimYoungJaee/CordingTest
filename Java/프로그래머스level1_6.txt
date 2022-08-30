@@ -1,0 +1,30 @@
+/*	
+프로그래머스 level1 최소 직사각형	
+다양한 크기의 명함을 넣기위한 지갑크기 구하기
+2022 - 08 - 29
+*/
+
+class Solution {
+    public int solution(int[][] sizes) {
+        int answer = 0;
+        int max_1 = 0, max_2 = 0;
+        for(int i = 0 ; i < sizes.length; i ++){
+            if(sizes[i][0] < sizes[i][1] ){
+                int a = sizes[i][0];
+                sizes[i][0] = sizes[i][1];
+                sizes[i][1] = a;
+            }
+        }
+        for(int i = 0; i < sizes.length; i++){
+            if(sizes[i][0] > max_1)
+                max_1 = sizes[i][0];
+        }
+        for(int i = 0; i < sizes.length; i++){
+            if(sizes[i][1] > max_2)
+                max_2 = sizes[i][1];
+        }
+        answer = max_1 * max_2;
+        // int answer = sizes[0][0];
+        return answer;
+    }
+}
