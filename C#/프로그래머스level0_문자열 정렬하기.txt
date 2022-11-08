@@ -1,0 +1,22 @@
+https://school.programmers.co.kr/learn/courses/30/lessons/120911
+
+
+using System;
+
+public class Solution {
+    public string solution(string my_string) {
+        string answer = "";
+        String str_lower = my_string.ToLower();
+        char[] ch = new char[my_string.Length];
+        for(int i = 0; i < ch.Length; i++)
+        {
+            ch[i] = str_lower[i];
+        }
+        Array.Sort(ch);
+        for(int i = 0; i < ch.Length; i++)
+        {
+            answer = answer + ch[i];
+        }
+        return answer;
+    }
+}
