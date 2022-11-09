@@ -1,0 +1,20 @@
+https://school.programmers.co.kr/learn/courses/30/lessons/120956?language=csharp
+
+
+using System;
+
+public class Solution {
+    public int solution(string[] babbling) {
+        int answer = 0;
+        string[] arr = {"aya", "ye", "woo", "ma"};
+        for(int i=0; i< babbling.Length; i++){
+            for(int j = 0 ; j < arr.Length; j++){
+                babbling[i] = babbling[i].Replace(arr[j], "x");
+            }
+            if(babbling[i] == "x" || babbling[i] == "xx" 
+               || babbling[i] == "xxx" || babbling[i] == "xxxx")
+                answer++;
+        }
+        return answer;
+    }
+}

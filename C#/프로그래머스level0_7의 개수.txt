@@ -1,0 +1,25 @@
+https://school.programmers.co.kr/learn/courses/30/lessons/120912
+
+
+using System;
+
+public class Solution {
+    public int solution(int[] array) {
+        int answer = 0;
+        string[] array_str = new string[array.Length];
+        for(int i = 0 ; i < array.Length; i ++){
+            array_str[i] = array[i].ToString();
+        }
+        for(int i = 0; i <array_str.Length; i++)
+        {
+            for(int j = 0 ; j < array_str[i].Length; j++)
+            {
+                if (array_str[i][j] == '7')
+                {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
+}
