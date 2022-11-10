@@ -1,0 +1,45 @@
+/*
+로또의 최고 순위와 최저 순위
+로또 6/45(이하 '로또'로 표기)는 1부터 45까지의 숫자 중 6개를 찍어서 맞히는 대표적인 복권입니다. 아래는 로또의 순위를 정하는 방식입니다. 
+*/ 
+
+using System;
+
+    public class Solution
+    {
+        public int[] solution(int[] lottos, int[] win_nums)
+        {
+            int[] answer = new int[2];
+            Array.Sort(lottos);
+            Array.Sort(win_nums);
+            int cnt_max = 0;
+            int cnt_min = 0;
+
+            for(int i = 0; i < 6; i++)
+            {
+                for(int j = 0; j < 6;j++)
+                {
+                    if (lottos[j] == win_nums[i])
+                    {
+                        cnt_max++;
+                        cnt_min++;
+                    }
+                    
+                }
+                if (lottos[i] == 0)
+                    cnt_max++;
+            }
+            cnt_max = cnt_max;
+            answer[0] = 7 - cnt_max;
+            answer[1] = 7 - cnt_min;
+            if (answer[0] >= 6)
+            {
+                answer[0] = 6;
+            }
+            if (answer[1] >= 6)
+            {
+                answer[1] = 6;
+            }
+            return answer;
+        }
+    }
